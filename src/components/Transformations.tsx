@@ -1,90 +1,98 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
-import { Award, TrendingUp, Quote, CheckCircle2, Sliders, Flame, Dumbbell } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Award, CheckCircle2, Flame, TrendingUp, Zap, ArrowRight, Star } from "lucide-react";
 
 export default function Transformations() {
-  const [filter, setFilter] = useState<"all" | "fatloss" | "muscle">("all");
-  const [activeComparison, setActiveComparison] = useState<number>(1);
+  const [filter, setFilter] = useState<"all" | "cut" | "bulk">("all");
 
-  const items = [
+  const transformations = [
     {
       id: 1,
-      category: "fatloss",
-      tag: "-16 KG SALA U 14 TJEDANA",
-      name: "Marko P., 31 god. (Poduzetnik)",
-      stats: "Masno tkivo: 24% → 11%",
-      beforeLabel: "Prije: 104 kg (kroničan umor)",
-      afterLabel: "Poslije: 88 kg (izklesana definicija)",
-      quote:
-        "Najveća razlika u odnosu na sve što sam probao prije je ta što sam s Ivanom jeo normalno, imao energije za posao i obitelj, a salo se doslovno topilo tjedan za tjednom.",
+      name: "Marko B. (29)",
+      category: "cut",
+      badge: "🔥 TOPLJENJE MASTI (-16 KG)",
+      duration: "14 tjedana",
+      stats: { weight: "98 kg → 82 kg", bodyFat: "24% → 11%", waist: "-14 cm" },
+      story:
+        "Radio sam 10 sati dnevno u uredu na menadžerskoj poziciji. Probao sam keto i trčanje, uvijek bi vratio kile. S Ivanom sam jeo 2,400 kcal, trenirao 3x tjedno poslije posla i skinuo 16 kg bez da sam jednom bio gladan.",
       image: "/assets/transformation.jpg",
-      highlightMetric: "-16 KG",
-      highlightSub: "Čisti gubitak masti",
+      highlight: "-16 KG & PLOČICE NA TRBUHU",
     },
     {
       id: 2,
-      category: "muscle",
-      tag: "+7 KG ČISTIH MIŠIĆA",
-      name: "Ana M., 27 god. (Arhitektica)",
-      stats: "Snaga čučnja: +40 KG",
-      beforeLabel: "Prije: 54 kg (bez tonusa)",
-      afterLabel: "Poslije: 61 kg (apsolutna snaga)",
-      quote:
-        "Bojala sam se da ću se 'udebljati' ako pojačam unos kalorija, ali me Ivan vodio kroz svaki korak. Oblikovala sam tijelo, podigla samopouzdanje i osjećam se jače nego ikad.",
+      name: "Luka M. (24)",
+      category: "bulk",
+      badge: "💪 ČISTA MIŠIĆNA MASA (+8 KG)",
+      duration: "16 tjedana",
+      stats: { weight: "68 kg → 76 kg", bench: "+30 kg", arms: "+4.5 cm" },
+      story:
+        "Cijeli život sam bio 'onaj mršavi dečko'. Probao sam jesti sve živo ali nisam dobivao grama. Ivan mi je posložio precizne ugljikohidrate i hipertrofijski trening u aplikaciji. Dobio sam 8 kg mišića u 4 mjeseca!",
       image: "/assets/transformation.jpg",
-      highlightMetric: "+7 KG",
-      highlightSub: "Čista mišićna masa",
+      highlight: "+8 KG MIŠIĆA & REKORDI U SNACI",
+    },
+    {
+      id: 3,
+      name: "Ivan K. (33)",
+      category: "cut",
+      badge: "⚡ BODY RECOMPOSITION",
+      duration: "12 tjedana",
+      stats: { weight: "91 kg → 81 kg", bodyFat: "21% → 10%", strength: "+15%" },
+      story:
+        "Mislio sam da u 30-ima više ne mogu imati trbušnjake zbog posla i obitelji. Ivan mi je pokazao kako fleksibilnom prehranom zadržati vikend ručak s obitelji, a paralelno sam skinuo 10 kg masti i ojačao na svim vježbama.",
+      image: "/assets/transformation.jpg",
+      highlight: "-10 KG & ŽIVOTNA FORMA U 33. GODINI",
     },
   ];
 
-  const filtered = filter === "all" ? items : items.filter((i) => i.category === filter);
+  const filteredList = transformations.filter(
+    (item) => filter === "all" || item.category === filter
+  );
 
   return (
-    <section id="transformacije" className="py-24 relative bg-[#0B0F19] border-t border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header (UI-UX Pro Max Before-After Transformation Pattern) */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-[#162032] border border-[#F97316]/40 text-[#F97316] text-xs font-bold uppercase tracking-wider font-display">
-            <Award className="w-4 h-4" />
-            <span>REZULTATI GOVORE SVE • VERIFICIRANE TRANSFORMACIJE</span>
+    <section id="transformations" className="py-24 bg-[#0B0F19] relative border-t border-[#243350]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#131B2E] border border-[#243350] text-xs font-condensed tracking-widest text-[#B4FF00] uppercase mb-4">
+            <Award className="w-4 h-4 text-[#B4FF00]" />
+            <span>REZULTATI GOVORE SVE</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-display uppercase tracking-tight">
-            PRIJE I POSLIJE: STVARNI KLIJENTI, <span className="text-gradient-orange">STVARNI BROJEVI</span>
+          <h2 className="text-3xl sm:text-5xl font-condensed font-black tracking-tight uppercase text-white mb-4">
+            PRAVE TRANSFORMACIJE <span className="text-gradient-cyber">STVARNIH LJUDI</span>
           </h2>
-          <p className="text-slate-300 text-base sm:text-lg font-body leading-relaxed">
-            Ovo nisu glumci niti generične fotografije. Pogledaj konkretne brojke, gubitak postotka masti i porast snage kada se posvetiš pravom sistemu i stručnom vodstvu.
+          <p className="text-[#94A3B8] text-base sm:text-lg">
+            Nema fotošopa niti lažnih obećanja. Pogledaj što naši klijenti postižu u 12 do 16 tjedana kada se primijeni precizan znanstveni protokol i svakodnevna podrška trenera Kocha.
           </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex justify-center gap-3 mb-14 flex-wrap">
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
           {[
-            { id: "all", label: "Svi Rezultati (2)", icon: <Sliders className="w-4 h-4" /> },
-            { id: "fatloss", label: "Topljenje Masnoće", icon: <Flame className="w-4 h-4" /> },
-            { id: "muscle", label: "Izgradnja Mišića", icon: <Dumbbell className="w-4 h-4" /> },
+            { id: "all", label: "⚡ SVE TRANSFORMACIJE" },
+            { id: "cut", label: "🔥 TOPLJENJE MASTI (-10 KG+)" },
+            { id: "bulk", label: "💪 IZGRADNJA MIŠIĆA (+5 KG+)" },
           ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setFilter(tab.id as any)}
-              className={`px-6 py-3 rounded-xl text-sm font-bold transition-all flex items-center gap-2.5 font-display uppercase tracking-wider ${
+              className={`px-6 py-3 rounded-lg font-condensed font-extrabold text-sm uppercase tracking-wider transition-all border ${
                 filter === tab.id
-                  ? "bg-[#F97316] text-white shadow-[0_0_20px_rgba(249,115,22,0.4)]"
-                  : "bg-[#162032] border border-white/10 text-slate-300 hover:bg-white/10"
+                  ? "bg-[#F97316] text-[#0B0F19] border-[#F97316] shadow-[0_0_25px_rgba(249,115,22,0.45)] scale-105"
+                  : "bg-[#131B2E] text-[#94A3B8] border-[#243350] hover:text-white hover:border-slate-500"
               }`}
             >
-              {tab.icon}
-              <span>{tab.label}</span>
+              {tab.label}
             </button>
           ))}
         </div>
 
-        {/* Grid of Before-After Blocks */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Transformations Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <AnimatePresence mode="popLayout">
-            {filtered.map((item) => (
+            {filteredList.map((item) => (
               <motion.div
                 key={item.id}
                 layout
@@ -92,86 +100,110 @@ export default function Transformations() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
-                className="block-card rounded-3xl overflow-hidden flex flex-col group"
+                className="pro-card overflow-hidden flex flex-col group"
               >
-                {/* Visual Comparison Header */}
-                <div className="relative aspect-[16/9] sm:aspect-[2/1] w-full overflow-hidden bg-black">
-                  <Image
+                {/* Image & Badge Container */}
+                <div className="relative aspect-[16/10] bg-[#131B2E] overflow-hidden">
+                  <img
                     src={item.image}
-                    alt={item.name}
-                    fill
-                    className={`object-cover transition-transform duration-700 group-hover:scale-105 ${
-                      item.category === "muscle" ? "brightness-95 contrast-115" : ""
-                    }`}
+                    alt={`Transformacija ${item.name}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#162032] via-transparent to-transparent opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent opacity-90" />
                   
-                  {/* Top Result Tag */}
-                  <div className="absolute top-4 right-4 px-4 py-1.5 rounded-xl bg-[#F97316] text-white font-display font-black text-xs shadow-xl uppercase tracking-wider flex items-center gap-1.5">
-                    <TrendingUp className="w-4 h-4" />
-                    <span>{item.tag}</span>
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                    <span className="px-3 py-1 rounded bg-[#0B0F19]/90 backdrop-blur-md border border-[#F97316] text-[#F97316] font-condensed font-black text-xs uppercase tracking-wider shadow-lg">
+                      {item.badge}
+                    </span>
+                    <span className="px-2.5 py-1 rounded bg-[#B4FF00] text-[#0B0F19] font-condensed font-bold text-xs uppercase">
+                      {item.duration}
+                    </span>
                   </div>
 
-                  {/* Before / After Indicators overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 flex justify-between gap-2 text-xs font-mono font-bold">
-                    <span className="px-3 py-1 rounded bg-black/80 text-slate-300 border border-white/20 backdrop-blur-md">
-                      🔴 {item.beforeLabel}
-                    </span>
-                    <span className="px-3 py-1 rounded bg-[#B4FF00] text-black border border-black/30 font-extrabold shadow-md">
-                      🟢 {item.afterLabel}
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <h3 className="font-condensed font-black text-xl text-white uppercase leading-none">
+                      {item.name}
+                    </h3>
+                    <span className="text-xs font-condensed tracking-wider text-[#B4FF00] font-bold block mt-1">
+                      ⭐ {item.highlight}
                     </span>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
-                  <div className="space-y-4">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                      <h3 className="text-2xl font-bold text-white font-display uppercase tracking-wide">{item.name}</h3>
-                      <span className="px-3.5 py-1.5 rounded-xl text-xs font-extrabold bg-[#22C55E]/15 border border-[#22C55E]/40 text-[#22C55E] font-mono w-fit">
-                        {item.stats}
+                {/* Card Content & Stats */}
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-6">
+                  
+                  {/* Stats Bar */}
+                  <div className="grid grid-cols-3 gap-2 py-3 px-3 rounded-lg bg-[#0B0F19] border border-[#243350] text-center">
+                    <div>
+                      <span className="text-[10px] font-condensed text-[#94A3B8] uppercase block">TEŽINA</span>
+                      <span className="font-condensed font-bold text-xs sm:text-sm text-white">{item.stats.weight}</span>
+                    </div>
+                    {item.stats.bodyFat ? (
+                      <div>
+                        <span className="text-[10px] font-condensed text-[#94A3B8] uppercase block">MAST %</span>
+                        <span className="font-condensed font-bold text-xs sm:text-sm text-[#B4FF00]">{item.stats.bodyFat}</span>
+                      </div>
+                    ) : (
+                      <div>
+                        <span className="text-[10px] font-condensed text-[#94A3B8] uppercase block">BENCH</span>
+                        <span className="font-condensed font-bold text-xs sm:text-sm text-[#B4FF00]">{item.stats.bench}</span>
+                      </div>
+                    )}
+                    <div>
+                      <span className="text-[10px] font-condensed text-[#94A3B8] uppercase block">PROMJENA</span>
+                      <span className="font-condensed font-bold text-xs sm:text-sm text-[#F97316]">
+                        {item.stats.waist || item.stats.arms || item.stats.strength}
                       </span>
                     </div>
+                  </div>
 
-                    {/* Big Highlight Metric Block */}
-                    <div className="grid grid-cols-3 gap-3 p-4 rounded-2xl bg-[#0B0F19] border border-white/10 items-center">
-                      <div className="col-span-1 text-center border-r border-white/10 pr-2">
-                        <div className="text-3xl font-black text-[#F97316] font-display">{item.highlightMetric}</div>
-                        <div className="text-[10px] text-slate-400 uppercase font-bold">{item.highlightSub}</div>
-                      </div>
-                      <div className="col-span-2 pl-2">
-                        <p className="text-slate-300 text-xs sm:text-sm italic font-body leading-relaxed">
-                          &ldquo;{item.quote}&rdquo;
-                        </p>
-                      </div>
+                  {/* Story */}
+                  <p className="text-sm text-[#94A3B8] italic leading-relaxed">
+                    "{item.story}"
+                  </p>
+
+                  {/* Client Review Stars & CTA */}
+                  <div className="pt-4 border-t border-[#243350] flex items-center justify-between">
+                    <div className="flex text-[#F97316]">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
                     </div>
+                    <a
+                      href="#wizard"
+                      className="text-xs font-condensed font-extrabold tracking-wider uppercase text-white hover:text-[#F97316] transition-colors flex items-center gap-1"
+                    >
+                      <span>ŽELIM OVAJ REZULTAT</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
                   </div>
 
-                  <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
-                    <span className="font-semibold">1-on-1 Mentorstvo • Trener Ivan Koch</span>
-                    <span className="text-[#B4FF00] font-bold flex items-center gap-1">
-                      <CheckCircle2 className="w-4 h-4" /> Verificiran Rezultat ✓
-                    </span>
-                  </div>
                 </div>
               </motion.div>
             ))}
           </AnimatePresence>
         </div>
 
-        {/* Bottom CTA Block */}
-        <div className="mt-14 p-8 rounded-3xl block-card-lime text-center max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="text-left">
-            <h4 className="text-2xl font-extrabold text-white font-display uppercase tracking-tight">Želiš Svoj Vlastiti Prije-Poslije Rezultat?</h4>
-            <p className="text-sm text-slate-300 mt-1">Svi klijenti kreću s kratkim upitnikom za procjenu trenutnog stanja.</p>
+        {/* Bottom Banner CTA */}
+        <div className="mt-16 pro-card-active p-8 text-center sm:flex sm:items-center sm:justify-between">
+          <div className="text-left mb-6 sm:mb-0">
+            <h3 className="text-2xl font-condensed font-black uppercase text-white">
+              Spreman si napisati vlastitu transformaciju?
+            </h3>
+            <p className="text-sm text-[#94A3B8] mt-1">
+              Prvi korak je ispunjavanje našeg kratkog upitnika kako bismo procijenili tvoje trenutno stanje.
+            </p>
           </div>
           <a
-            href="#upitnik"
-            className="btn-lime px-8 py-4 rounded-2xl text-sm font-black shrink-0 shadow-xl"
+            href="#wizard"
+            className="pro-btn-primary px-8 py-4 text-sm inline-flex items-center gap-2"
           >
-            Ispuni Upitnik Za Transformaciju →
+            <span>ISPUNI UPITNIK ODMAH</span>
+            <ArrowRight className="w-4 h-4" />
           </a>
         </div>
+
       </div>
     </section>
   );
