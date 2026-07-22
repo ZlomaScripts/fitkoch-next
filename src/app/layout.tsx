@@ -1,36 +1,37 @@
 import type { Metadata } from "next";
-import { Syne, Outfit } from "next/font/google";
+import { Barlow_Condensed, Barlow } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-barlow-condensed",
   subsets: ["latin"],
-  weight: ["700", "800"],
+  weight: ["500", "600", "700", "800", "900"],
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const barlow = Barlow({
+  variable: "--font-barlow",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "FitKoch — 1-na-1 Online Fitness Coaching | Trener Ivan Koch",
+  metadataBase: new URL("https://fitkochnext.vercel.app"),
+  title: "FitKoch — 1-on-1 Online Fitness Coaching Pro Max | Trener Ivan Koch",
   description:
-    "Ekskluzivni 1-on-1 online fitness i nutricionistički coaching s trenerom Ivanom Kochom (@fitkochivan). Započni potpunu transformaciju tijela i uma. Besplatne konzultacije i interaktivni upitnik.",
+    "Ekskluzivni 1-on-1 online fitness i nutricionistički coaching s trenerom Ivanom Kochom (@fitkochivan). Znanstveni pristup, izvanredni rezultati, potpuna fleksibilnost bez gladovanja.",
   keywords: [
     "fitkoch",
     "ivan koch",
     "online treninzi",
     "osobni trener",
-    "fitness coaching",
+    "fitness coaching pro max",
     "transformacija tijela",
     "nutricionist",
-    "personal trainer balkan",
+    "personal trainer",
   ],
   authors: [{ name: "Ivan Koch", url: "https://www.instagram.com/fitkochivan" }],
   openGraph: {
-    title: "FitKoch — 1-na-1 Online Fitness Coaching | Trener Ivan Koch",
+    title: "FitKoch — 1-on-1 Online Fitness Coaching | Trener Ivan Koch",
     description:
       "Zaboravi na generične planove i izgladnjivanje. 100% prilagođen trening, precizna prehrana i svakodnevna podrška trenera Ivana Kocha.",
     url: "https://www.instagram.com/fitkochivan",
@@ -56,9 +57,9 @@ export default function RootLayout({
   return (
     <html
       lang="hr"
-      className={`${syne.variable} ${outfit.variable} scroll-smooth`}
+      className={`${barlowCondensed.variable} ${barlow.variable} scroll-smooth`}
     >
-      <body className="min-h-screen flex flex-col bg-[#080a09] text-[#f3f4f6] antialiased selection:bg-[#b4ff00] selection:text-black">
+      <body className="min-h-screen flex flex-col bg-[#0B0F19] text-[#F8FAFC] antialiased selection:bg-[#F97316] selection:text-white">
         {children}
       </body>
     </html>

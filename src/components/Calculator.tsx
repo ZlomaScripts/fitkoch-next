@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Calculator as CalcIcon, Flame, Dumbbell, ArrowRight, Lock } from "lucide-react";
+import { Calculator as CalcIcon, Flame, Dumbbell, ArrowRight, Lock, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Calculator() {
@@ -34,39 +34,39 @@ export default function Calculator() {
   const { weeks, calories, water } = calculateResults();
 
   return (
-    <section id="kalkulator" className="py-24 relative overflow-hidden bg-[#0a0d0c]">
+    <section id="kalkulator" className="py-24 relative overflow-hidden bg-[#0B0F19]">
       {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#b4ff00]/5 blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-[#F97316]/10 blur-[170px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#b4ff00] text-xs font-bold uppercase tracking-wider">
-            <CalcIcon className="w-3.5 h-3.5" />
-            INTERAKTIVNA PROGNOZA
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-[#162032] border border-[#F97316]/40 text-[#F97316] text-xs font-bold uppercase tracking-wider font-display">
+            <CalcIcon className="w-4 h-4" />
+            <span>INTERAKTIVNI PROGNOSTIČKI KALKULATOR</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
-            Koliko Brzo Možeš Do Željene Forme?
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-display uppercase tracking-tight">
+            KOLIKO BRZO MOŽEŠ DO <span className="text-gradient-orange">CILJANE FORME?</span>
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg">
-            Pomakni klizače, odaberi svoju razinu aktivnosti i trenutno izračunaj preporučeni unos kalorija, vode te procijenjeno vrijeme trajanja tvoje transformacije uz FitKoch sistem.
+          <p className="text-slate-300 text-base sm:text-lg font-body leading-relaxed">
+            Pomakni klizače, odaberi svoju razinu aktivnosti i trenutno izračunaj preporučeni dnevni unos kalorija, vode te procijenjeno vrijeme trajanja tvoje transformacije uz FitKoch sistem.
           </p>
         </div>
 
-        {/* Calculator Box Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center glass-card p-6 sm:p-10 rounded-3xl border border-white/10 shadow-2xl">
+        {/* Calculator Block Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center block-card p-6 sm:p-10 rounded-3xl border border-white/10 shadow-2xl">
           {/* Inputs Column */}
           <div className="lg:col-span-7 space-y-8">
             <div>
-              <h3 className="text-xl font-bold text-white mb-1">Tvoji Podaci</h3>
-              <p className="text-sm text-gray-400">Prilagodi parametre za preciznu znanstvenu procjenu.</p>
+              <h3 className="text-2xl font-bold text-white font-display uppercase">Tvoji Ulazni Parametri</h3>
+              <p className="text-sm text-slate-400">Prilagodi parametre za preciznu procjenu metabolizma.</p>
             </div>
 
             {/* Slider 1: Current Weight */}
             <div className="space-y-3">
-              <div className="flex justify-between items-center text-sm font-semibold">
-                <span className="text-gray-300">Trenutna Težina</span>
-                <span className="text-xl font-extrabold text-[#b4ff00] font-syne">{weight} kg</span>
+              <div className="flex justify-between items-center text-sm font-bold uppercase font-display tracking-wide">
+                <span className="text-slate-300">Trenutna Težina</span>
+                <span className="text-2xl font-black text-[#F97316] font-display">{weight} KG</span>
               </div>
               <input
                 type="range"
@@ -74,9 +74,9 @@ export default function Calculator() {
                 max={150}
                 value={weight}
                 onChange={(e) => setWeight(Number(e.target.value))}
-                className="w-full accent-[#b4ff00]"
+                className="w-full accent-[#F97316]"
               />
-              <div className="flex justify-between text-xs text-gray-500">
+              <div className="flex justify-between text-xs text-slate-500 font-mono">
                 <span>45 kg</span>
                 <span>150 kg</span>
               </div>
@@ -84,9 +84,9 @@ export default function Calculator() {
 
             {/* Slider 2: Target Weight */}
             <div className="space-y-3">
-              <div className="flex justify-between items-center text-sm font-semibold">
-                <span className="text-gray-300">Ciljana Težina</span>
-                <span className="text-xl font-extrabold text-[#10b981] font-syne">{targetWeight} kg</span>
+              <div className="flex justify-between items-center text-sm font-bold uppercase font-display tracking-wide">
+                <span className="text-slate-300">Ciljana Težina</span>
+                <span className="text-2xl font-black text-[#B4FF00] font-display">{targetWeight} KG</span>
               </div>
               <input
                 type="range"
@@ -94,9 +94,9 @@ export default function Calculator() {
                 max={150}
                 value={targetWeight}
                 onChange={(e) => setTargetWeight(Number(e.target.value))}
-                className="w-full accent-[#10b981]"
+                className="w-full accent-[#B4FF00]"
               />
-              <div className="flex justify-between text-xs text-gray-500">
+              <div className="flex justify-between text-xs text-slate-500 font-mono">
                 <span>45 kg</span>
                 <span>150 kg</span>
               </div>
@@ -104,22 +104,22 @@ export default function Calculator() {
 
             {/* Activity Level Pills */}
             <div className="space-y-3">
-              <label className="block text-sm font-semibold text-gray-300">Razina Dnevne Aktivnosti</label>
+              <label className="block text-sm font-bold uppercase tracking-wide text-slate-300 font-display">Razina Dnevne Aktivnosti</label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
-                  { label: "Sjedilački posao", val: 1.2 },
-                  { label: "Umjereno aktivan (1-3 puta)", val: 1.375 },
-                  { label: "Redovni treninzi (3-5 puta)", val: 1.55 },
-                  { label: "Sportaš / Teški rad", val: 1.725 },
+                  { label: "Sjedilački posao (malo kretanja)", val: 1.2 },
+                  { label: "Umjereno aktivan (1-3 puta tjedno)", val: 1.375 },
+                  { label: "Redovni treninzi (3-5 puta tjedno)", val: 1.55 },
+                  { label: "Intenzivan sport / Teški rad", val: 1.725 },
                 ].map((item) => (
                   <button
                     key={item.val}
                     type="button"
                     onClick={() => setActivity(item.val)}
-                    className={`px-4 py-3 rounded-xl text-xs sm:text-sm font-medium text-left transition-all border ${
+                    className={`px-4 py-3.5 rounded-2xl text-xs sm:text-sm font-bold text-left transition-all border font-display tracking-wide uppercase ${
                       activity === item.val
-                        ? "bg-[#b4ff00]/10 border-[#b4ff00] text-[#b4ff00] shadow-[0_0_15px_rgba(180,255,0,0.15)]"
-                        : "bg-white/5 border-white/10 text-gray-300 hover:bg-white/10"
+                        ? "bg-[#F97316]/15 border-[#F97316] text-[#F97316] shadow-[0_0_20px_rgba(249,115,22,0.25)]"
+                        : "bg-[#0B0F19] border-white/10 text-slate-300 hover:bg-white/10"
                     }`}
                   >
                     {item.label}
@@ -130,73 +130,78 @@ export default function Calculator() {
 
             {/* Goal Pills */}
             <div className="space-y-3">
-              <label className="block text-sm font-semibold text-gray-300">Glavni Fokus</label>
+              <label className="block text-sm font-bold uppercase tracking-wide text-slate-300 font-display">Glavni Fokus</label>
               <div className="grid grid-cols-2 gap-3">
                 <button
                   type="button"
                   onClick={() => setGoal("fatloss")}
-                  className={`flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-sm font-bold transition-all border ${
+                  className={`flex items-center justify-center gap-2.5 px-4 py-4 rounded-2xl text-sm font-extrabold transition-all border font-display uppercase tracking-wider ${
                     goal === "fatloss"
-                      ? "bg-[#b4ff00] text-black border-[#b4ff00] shadow-[0_0_20px_rgba(180,255,0,0.3)]"
-                      : "bg-white/5 border-white/10 text-gray-300 hover:bg-white/10"
+                      ? "bg-[#F97316] text-white border-[#F97316] shadow-[0_0_25px_rgba(249,115,22,0.4)]"
+                      : "bg-[#0B0F19] border-white/10 text-slate-300 hover:bg-white/10"
                   }`}
                 >
-                  <Flame className={`w-4 h-4 ${goal === "fatloss" ? "fill-black text-black" : "text-[#b4ff00]"}`} />
+                  <Flame className={`w-5 h-5 ${goal === "fatloss" ? "fill-white text-white" : "text-[#F97316]"}`} />
                   <span>🔥 Topljenje masnoće</span>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setGoal("muscle")}
-                  className={`flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-sm font-bold transition-all border ${
+                  className={`flex items-center justify-center gap-2.5 px-4 py-4 rounded-2xl text-sm font-extrabold transition-all border font-display uppercase tracking-wider ${
                     goal === "muscle"
-                      ? "bg-[#b4ff00] text-black border-[#b4ff00] shadow-[0_0_20px_rgba(180,255,0,0.3)]"
-                      : "bg-white/5 border-white/10 text-gray-300 hover:bg-white/10"
+                      ? "bg-[#B4FF00] text-black border-[#B4FF00] shadow-[0_0_25px_rgba(180,255,0,0.4)]"
+                      : "bg-[#0B0F19] border-white/10 text-slate-300 hover:bg-white/10"
                   }`}
                 >
-                  <Dumbbell className={`w-4 h-4 ${goal === "muscle" ? "text-black" : "text-[#10b981]"}`} />
+                  <Dumbbell className={`w-5 h-5 ${goal === "muscle" ? "text-black" : "text-[#B4FF00]"}`} />
                   <span>💪 Mišićna masa</span>
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Results Column */}
-          <div className="lg:col-span-5 bg-[#181c1b]/80 border border-white/15 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl relative overflow-hidden">
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#b4ff00]/15 rounded-full blur-3xl pointer-events-none" />
+          {/* Results Column Block */}
+          <div className="lg:col-span-5 bg-[#0B0F19] border-2 border-[#F97316]/50 rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl relative overflow-hidden">
+            <div className="absolute -top-12 -right-12 w-48 h-48 bg-[#F97316]/20 rounded-full blur-3xl pointer-events-none" />
 
             <div>
-              <h4 className="text-xl font-extrabold text-white font-syne">Tvoj FitKoch Akcijski Plan</h4>
-              <p className="text-xs sm:text-sm text-gray-400 mt-1">
+              <div className="inline-block px-3 py-1 rounded bg-[#B4FF00]/15 text-[#B4FF00] font-mono text-xs font-bold uppercase mb-2">
+                • PROGNOZA NAPRETKA
+              </div>
+              <h4 className="text-2xl font-black text-white font-display uppercase leading-tight">
+                Tvoj FitKoch Akcijski Plan
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-400 mt-1">
                 Procijenjeni ciljevi na temelju tvog metabolizma i brzine napretka u 1-on-1 radu:
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="p-4 rounded-2xl bg-black/40 border border-white/10">
-                <div className="text-xs text-gray-400 font-medium">Procijenjeno Vrijeme</div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#b4ff00] font-syne mt-1">
-                  {weeks} Tjedana
+              <div className="p-4 rounded-2xl bg-[#162032] border border-white/10">
+                <div className="text-xs text-slate-400 font-bold uppercase font-display">Procijenjeno Vrijeme</div>
+                <div className="text-3xl sm:text-4xl font-black text-[#F97316] font-display mt-1">
+                  {weeks} TJEDANA
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-black/40 border border-white/10">
-                <div className="text-xs text-gray-400 font-medium">Dnevni Kalorijski Cilj</div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white font-syne mt-1">
-                  {calories} kcal
+              <div className="p-4 rounded-2xl bg-[#162032] border border-white/10">
+                <div className="text-xs text-slate-400 font-bold uppercase font-display">Dnevni Kalorijski Cilj</div>
+                <div className="text-3xl sm:text-4xl font-black text-white font-display mt-1">
+                  {calories} <span className="text-base font-normal text-slate-400">kcal</span>
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-black/40 border border-white/10">
-                <div className="text-xs text-gray-400 font-medium">Preporučena Hidracija</div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#10b981] font-syne mt-1">
+              <div className="p-4 rounded-2xl bg-[#162032] border border-white/10">
+                <div className="text-xs text-slate-400 font-bold uppercase font-display">Preporučena Hidracija</div>
+                <div className="text-3xl sm:text-4xl font-black text-[#22C55E] font-display mt-1">
                   {water} L
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-black/40 border border-white/10">
-                <div className="text-xs text-gray-400 font-medium">Vjerojatnost Uspjeha</div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#b4ff00] font-syne mt-1">
+              <div className="p-4 rounded-2xl bg-[#162032] border border-white/10">
+                <div className="text-xs text-slate-400 font-bold uppercase font-display">Vjerojatnost Uspjeha</div>
+                <div className="text-3xl sm:text-4xl font-black text-[#B4FF00] font-display mt-1">
                   98%
                 </div>
               </div>
@@ -205,13 +210,13 @@ export default function Calculator() {
             <div className="pt-4 space-y-3">
               <a
                 href="#upitnik"
-                className="btn-lime w-full py-4 rounded-2xl text-center font-bold text-base flex items-center justify-center gap-2 shadow-lg"
+                className="btn-orange w-full py-4 rounded-2xl text-center font-black text-base flex items-center justify-center gap-2 shadow-xl"
               >
                 <span>Započni Ovu Transformaciju Odmah</span>
                 <ArrowRight className="w-5 h-5" />
               </a>
-              <p className="flex items-center justify-center gap-2 text-xs text-gray-400 text-center">
-                <Lock className="w-3.5 h-3.5 text-[#b4ff00]" />
+              <p className="flex items-center justify-center gap-2 text-xs text-slate-400 text-center font-body">
+                <Lock className="w-3.5 h-3.5 text-[#B4FF00] shrink-0" />
                 <span>Svi izračuni se u potpunosti prilagođavaju nakon detaljnog razgovora s Ivanom.</span>
               </p>
             </div>

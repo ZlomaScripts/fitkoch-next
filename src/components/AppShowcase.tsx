@@ -2,30 +2,30 @@
 
 import React from "react";
 import Image from "next/image";
-import { Smartphone, CheckCircle, ArrowRight, Video, BarChart2, MessageCircle } from "lucide-react";
+import { Smartphone, CheckCircle2, ArrowRight, Video, BarChart2, MessageCircle, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function AppShowcase() {
   const features = [
     {
-      icon: <Video className="w-6 h-6 text-[#b4ff00]" />,
-      title: "Interaktivni Video Prikaz Svake Vježbe",
-      desc: "Nema nagađanja u teretani. Svaka vježba u tvom planu ima jasan video prikaz pravilne tehnike i Ivanove savjete.",
+      icon: <Video className="w-6 h-6 text-[#F97316]" />,
+      title: "INTERAKTIVNI VIDEO PRIKAZ SVAKE VJEŽBE",
+      desc: "Nema nagađanja u teretani. Svaka vježba u tvom planu ima jasan video prikaz pravilne tehnike, tempo izvođenja i Ivanove precizne upute.",
     },
     {
-      icon: <BarChart2 className="w-6 h-6 text-[#10b981]" />,
-      title: "Pametno Praćenje Makronutrijenata & Obroka",
-      desc: "Skeniraj barkodove ili koristi našu bazu namirnica, uz fleksibilne zamjene koje se uklapaju u tvoje dnevne ciljeve.",
+      icon: <BarChart2 className="w-6 h-6 text-[#B4FF00]" />,
+      title: "PAMETNO PRAĆENJE MAKRONUTRIJENATA & OBROKA",
+      desc: "Skeniraj barkodove ili koristi našu bazu namirnica, uz fleksibilne zamjene koje se uklapaju u tvoje dnevne ciljeve bez stresa.",
     },
     {
-      icon: <MessageCircle className="w-6 h-6 text-[#b4ff00]" />,
-      title: "Direktan Chat s Trenerom Ivanom",
-      desc: "Pošalji video svoje izvedbe čučnja ili pitaj za savjet oko večere u restoranu — odgovor dobivaš odmah.",
+      icon: <MessageCircle className="w-6 h-6 text-[#22C55E]" />,
+      title: "DIREKTAN CHAT S TRENEROM IVANOM",
+      desc: "Pošalji video svoje izvedbe čučnja ili pitaj za savjet oko večere u restoranu — stručan odgovor dobivaš u najkraćem roku.",
     },
   ];
 
   return (
-    <section id="aplikacija" className="py-24 relative bg-[#080a09]">
+    <section id="aplikacija" className="py-24 relative bg-[#0B0F19] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left Column: Info */}
         <motion.div
@@ -36,20 +36,20 @@ export default function AppShowcase() {
           className="lg:col-span-6 space-y-8"
         >
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-[#b4ff00] text-xs font-bold uppercase tracking-wider mb-4">
-              <Smartphone className="w-3.5 h-3.5" />
-              SVE NA JEDNOM MJESTU
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-[#162032] border border-[#F97316]/40 text-[#F97316] text-xs font-bold uppercase tracking-wider font-display mb-4">
+              <Smartphone className="w-4 h-4" />
+              <span>SVE NA JEDNOM MJESTU • PAMETNA TEHNOLOGIJA</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
-              Tvoja Cijela Transformacija Na Dlanu
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white leading-tight font-display uppercase tracking-tight">
+              TVOJA CIJELA TRANSFORMACIJA <span className="text-gradient-orange">NA DLANU</span>
             </h2>
-            <p className="text-gray-400 text-base sm:text-lg mt-4 leading-relaxed">
+            <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed font-body">
               Kada postaneš FitKoch klijent, dobivaš pristup našoj prilagođenoj aplikaciji za praćenje napretka, treninga i prehrane bez zamaranja s desetkovanim Excel tablicama.
             </p>
           </div>
 
-          {/* Features */}
-          <div className="space-y-6">
+          {/* Features Block List */}
+          <div className="space-y-4">
             {features.map((feat, i) => (
               <motion.div
                 key={feat.title}
@@ -57,14 +57,14 @@ export default function AppShowcase() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.15 }}
-                className="flex items-start gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/15 transition-all"
+                className="flex items-start gap-4 p-5 rounded-2xl bg-[#162032] border border-white/10 hover:border-[#F97316]/50 transition-all shadow-md"
               >
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10 shrink-0">
+                <div className="p-3.5 rounded-xl bg-[#0B0F19] border border-white/10 shrink-0 shadow-inner">
                   {feat.icon}
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-white">{feat.title}</h4>
-                  <p className="text-sm text-gray-400 mt-1 leading-relaxed">{feat.desc}</p>
+                  <h4 className="text-lg font-extrabold text-white font-display uppercase tracking-wide">{feat.title}</h4>
+                  <p className="text-sm text-slate-300 mt-1 leading-relaxed font-body">{feat.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -73,7 +73,7 @@ export default function AppShowcase() {
           <div className="pt-2">
             <a
               href="#upitnik"
-              className="btn-lime px-8 py-4 rounded-full font-bold text-base inline-flex items-center gap-2 shadow-xl"
+              className="btn-orange px-8 py-4 rounded-2xl font-black text-base inline-flex items-center gap-2 shadow-xl uppercase tracking-wider font-display"
             >
               <Smartphone className="w-5 h-5" />
               <span>Želim Pristup Aplikaciji & Treneru</span>
@@ -82,7 +82,7 @@ export default function AppShowcase() {
           </div>
         </motion.div>
 
-        {/* Right Column: Visual */}
+        {/* Right Column: Visual App Card */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -90,7 +90,14 @@ export default function AppShowcase() {
           transition={{ duration: 0.7 }}
           className="lg:col-span-6 flex justify-center"
         >
-          <div className="relative max-w-sm sm:max-w-md w-full rounded-3xl overflow-hidden border border-white/15 bg-[#111413] shadow-2xl shadow-black group">
+          <div className="relative max-w-sm sm:max-w-md w-full rounded-3xl overflow-hidden border-2 border-[#F97316]/50 bg-[#162032] shadow-[0_25px_60px_rgba(0,0,0,0.8)] group">
+            {/* Live Sync Top Tag */}
+            <div className="absolute top-4 left-4 z-20 px-3.5 py-1.5 rounded-lg bg-black/80 backdrop-blur-md border border-white/15 text-white text-xs font-bold font-display tracking-wider uppercase flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E] animate-ping" />
+              <span>LIVE SYNC S TRENEROM IVANOM</span>
+            </div>
+
+            {/* App Mockup Image */}
             <div className="relative aspect-[4/5] sm:aspect-[1/1] w-full">
               <Image
                 src="/assets/app_dashboard.jpg"
@@ -99,16 +106,22 @@ export default function AppShowcase() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 500px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080a09] via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent opacity-75" />
             </div>
 
-            <div className="absolute bottom-6 left-6 right-6 glass-card p-4 rounded-2xl flex items-center justify-between border border-[#b4ff00]/30 shadow-2xl">
+            {/* Floating Card Badge */}
+            <div className="absolute bottom-6 left-6 right-6 block-card-active p-4 rounded-2xl flex items-center justify-between shadow-2xl">
               <div className="flex items-center gap-3">
-                <div className="w-3 h-3 rounded-full bg-[#10b981] animate-ping" />
-                <span className="text-sm font-bold text-white">Live Sync s Trenerom Ivanom</span>
+                <div className="w-10 h-10 rounded-xl bg-[#22C55E]/20 border border-[#22C55E] flex items-center justify-center text-[#22C55E]">
+                  <ShieldCheck className="w-6 h-6" />
+                </div>
+                <div>
+                  <span className="text-sm font-bold text-white font-display uppercase block leading-tight">100% Siguran Protokol</span>
+                  <span className="text-xs text-slate-400">Podaci o prehrani i treningu zaštićeni</span>
+                </div>
               </div>
-              <span className="text-xs font-bold text-[#b4ff00] bg-[#b4ff00]/10 px-3 py-1 rounded-full">
-                24/7 Aktivno
+              <span className="text-xs font-black text-[#0B0F19] bg-[#B4FF00] px-3 py-1.5 rounded-lg font-display uppercase tracking-wider">
+                24/7 AKTIVNO
               </span>
             </div>
           </div>
