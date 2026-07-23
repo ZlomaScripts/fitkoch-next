@@ -64,12 +64,12 @@ export default function Home() {
             {/* Using Next.js Image for the generated mockup */}
             <div className="relative w-[380px] h-[750px] transform rotate-[-15deg] translate-y-20 translate-x-10 hover:rotate-[-5deg] hover:translate-y-10 transition-all duration-700 ease-in-out shadow-2xl">
               <div className="absolute -top-10 -left-10 bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-xl flex items-center gap-2 z-20 shadow-xl">
-                <Apple size={20} className="text-white" />
-                <span className="font-semibold text-sm">WATCH</span>
+                <Activity size={20} className="text-[#FFD21E]" />
+                <span className="font-semibold text-sm">PLAN</span>
               </div>
               <Image 
-                src="/app-mockup.jpg" 
-                alt="Fitkoch App Dashboard Mockup" 
+                src="/training-plan.jpg" 
+                alt="Fitkoch Personal Training Plan" 
                 fill 
                 className="object-cover rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.6)]"
               />
