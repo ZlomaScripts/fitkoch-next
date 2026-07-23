@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Dumbbell, Apple, Play, Quote, User, Activity } from "lucide-react";
 
 export default function Home() {
@@ -18,16 +19,15 @@ export default function Home() {
         </div>
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-          <a href="#" className="text-white hover:text-[#FFD21E] transition-colors">Programs</a>
-          <a href="#" className="hover:text-white transition-colors">Articles</a>
-          <a href="#" className="hover:text-white transition-colors">Community</a>
-          <a href="#" className="hover:text-white transition-colors">Support</a>
-          <a href="#" className="hover:text-white transition-colors">Contact</a>
+          <Link href="/" className="text-white hover:text-[#FFD21E] transition-colors">Početna</Link>
+          <Link href="#o-meni" className="hover:text-white transition-colors">O Meni</Link>
+          <Link href="#usluge" className="hover:text-white transition-colors">1na1 Trening</Link>
+          <Link href="/prijava" className="hover:text-[#FFD21E] text-white font-bold transition-colors">Prijava Klijenata</Link>
         </div>
         
-        <button className="text-sm font-semibold hover:text-[#FFD21E] transition-colors">
-          Sign up
-        </button>
+        <Link href="/prijava" className="bg-[#FFD21E] text-black px-6 py-2 rounded-full text-sm font-bold hover:bg-white transition-colors">
+          Prijavi se
+        </Link>
       </nav>
 
       {/* Hero Section */}
@@ -35,31 +35,27 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           {/* Left Column - Text content */}
           <div className="flex flex-col gap-6">
-            <h1 className="text-7xl lg:text-[7rem] font-black leading-[0.9] tracking-tighter uppercase">
-              READY<br />
-              <div className="flex items-center gap-4">
-                SET
-                <div className="h-[4rem] lg:h-[5.5rem] w-32 lg:w-48 bg-gradient-to-r from-purple-400 to-[#252429] rounded-r-full rounded-l-md ml-2 opacity-80"></div>
+            <h1 className="text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter uppercase">
+              IVAN<br />
+              <div className="flex items-center gap-4 text-[#FFD21E]">
+                FITKOCH
+                <div className="h-[3rem] lg:h-[5rem] w-16 lg:w-24 bg-gradient-to-r from-[#FFD21E] to-transparent rounded-r-full rounded-l-md ml-2 opacity-80"></div>
               </div>
-              FITKOCH
+              BAZINA
             </h1>
             
-            <div className="flex flex-wrap gap-4 mt-8">
-              <button className="glass-btn flex items-center gap-3 px-6 py-3 rounded-2xl">
-                <Apple size={30} />
+            <p className="text-xl text-gray-300 mt-2 leading-relaxed max-w-lg">
+              Ekspert za <strong className="text-white">1 na 1 treninge</strong>. Vrhunsko znanje o ishrani, suplementaciji i planiranju treninga. Transformiši svoj život uz profesionalno vođenje.
+            </p>
+            
+            <div className="flex flex-wrap gap-4 mt-6">
+              <Link href="/prijava" className="glass-btn flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#8B5CF6] to-[#6D28D9] hover:scale-105 transition-transform duration-300 border border-purple-400/30 shadow-[0_0_30px_rgba(139,92,246,0.3)]">
+                <Activity size={30} className="text-white" />
                 <div className="text-left">
-                  <div className="text-[10px] text-gray-300 uppercase tracking-wide">Download on the</div>
-                  <div className="text-lg font-semibold leading-tight">App Store</div>
+                  <div className="text-[11px] text-white/80 uppercase tracking-wide font-medium">Započni transformaciju</div>
+                  <div className="text-xl font-bold leading-tight text-white">Prijavi se odmah</div>
                 </div>
-              </button>
-              
-              <button className="glass-btn flex items-center gap-3 px-6 py-3 rounded-2xl">
-                <Play size={28} className="fill-white" />
-                <div className="text-left">
-                  <div className="text-[10px] text-gray-300 uppercase tracking-wide">GET IT ON</div>
-                  <div className="text-lg font-semibold leading-tight">Google Play</div>
-                </div>
-              </button>
+              </Link>
             </div>
           </div>
           
@@ -83,14 +79,14 @@ export default function Home() {
 
         {/* Bento Grid Features */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-16 md:mt-32 pb-10 z-20">
-          {/* Card 1: 40K+ Active Users */}
+          {/* Card 1: Stats */}
           <div className="bg-[#8B5CF6] rounded-3xl p-8 flex flex-col justify-end min-h-[220px] shadow-xl hover:-translate-y-2 transition-transform duration-300">
             <div className="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mb-auto shadow-inner">
               <User size={32} className="text-white" />
             </div>
             <div>
-              <h3 className="text-4xl font-black text-white/90">40K+</h3>
-              <p className="text-white/70 font-medium">Active user</p>
+              <h3 className="text-4xl font-black text-white/90">500+</h3>
+              <p className="text-white/70 font-medium">Zadovoljnih klijenata</p>
             </div>
           </div>
           
@@ -111,18 +107,18 @@ export default function Home() {
             
             <div className="flex items-center gap-4 mb-6 relative z-10">
               <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden">
-                <img src="https://i.pravatar.cc/150?img=11" alt="Mahmudul Hasan" className="w-full h-full object-cover" />
+                <img src="https://i.pravatar.cc/150?img=12" alt="Marko M." className="w-full h-full object-cover" />
               </div>
               <div>
-                <h4 className="font-bold text-sm">Mahmudul Hasan</h4>
-                <p className="text-gray-500 text-xs">Freelancer</p>
+                <h4 className="font-bold text-sm">Marko M.</h4>
+                <p className="text-gray-500 text-xs">Klijent (1 na 1)</p>
               </div>
             </div>
             
             <div className="mt-auto relative z-10">
-              <h3 className="font-bold text-xl mb-2">Fantastic</h3>
+              <h3 className="font-bold text-xl mb-2">Najbolja odluka!</h3>
               <p className="text-gray-500 text-sm leading-relaxed">
-                Best fitness application, adapts easily. Using it couple of months for long time.
+                Ivanovo znanje o ishrani je neverovatno. Promenio sam navike i konačno vidim prave rezultate.
               </p>
             </div>
           </div>
